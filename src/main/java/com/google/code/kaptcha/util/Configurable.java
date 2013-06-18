@@ -7,14 +7,14 @@ package com.google.code.kaptcha.util;
  */
 public abstract class Configurable
 {
-	private Config config = null;
+	private Configuration config = null;
 
-	public Config getConfig()
+	public Configuration getConfig()
 	{
 		return this.config;
 	}
 
-	public void setConfig(Config config)
+	public void setConfig(Configuration config)
 	{
 		this.config = config;
 	}

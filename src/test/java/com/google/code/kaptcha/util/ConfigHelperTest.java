@@ -200,11 +200,11 @@ public class ConfigHelperTest extends TestCase
 		Font[] fonts = helper.getFonts(
 				Constants.KAPTCHA_TEXTPRODUCER_FONT_NAMES, null, 12,
 				defaultFonts);
-		assertEquals("Arial", fonts[0].getFamily());
+		assertEquals("Arial", fonts[0].getName());
 		assertEquals(Font.BOLD, fonts[0].getStyle());
 		assertEquals(11, fonts[0].getSize());
 
-		assertEquals("Courier", fonts[1].getFamily());
+		assertEquals("Courier", fonts[1].getName());
 		assertEquals(Font.BOLD, fonts[1].getStyle());
 		assertEquals(11, fonts[1].getSize());
 	}
@@ -218,11 +218,11 @@ public class ConfigHelperTest extends TestCase
 		Font[] fonts = helper
 				.getFonts(Constants.KAPTCHA_TEXTPRODUCER_FONT_NAMES, "", 12,
 						defaultFonts);
-		assertEquals("Arial", fonts[0].getFamily());
+		assertEquals("Arial", fonts[0].getName());
 		assertEquals(Font.BOLD, fonts[0].getStyle());
 		assertEquals(11, fonts[0].getSize());
 
-		assertEquals("Courier", fonts[1].getFamily());
+		assertEquals("Courier", fonts[1].getName());
 		assertEquals(Font.BOLD, fonts[1].getStyle());
 		assertEquals(11, fonts[1].getSize());
 	}
@@ -233,10 +233,10 @@ public class ConfigHelperTest extends TestCase
 				Constants.KAPTCHA_TEXTPRODUCER_FONT_NAMES, "Verdana,Arial", 12,
 				new Font[]{});
 		assertEquals(2, fonts.length);
-		assertEquals("Verdana", fonts[0].getFamily());
+		assertEquals("Verdana", fonts[0].getName());
 		assertEquals(Font.BOLD, fonts[0].getStyle());
 		assertEquals(12, fonts[0].getSize());
-		assertEquals("Arial", fonts[1].getFamily());
+		assertEquals("Arial", fonts[1].getName());
 		assertEquals(Font.BOLD, fonts[1].getStyle());
 		assertEquals(12, fonts[1].getSize());
 	}
@@ -360,7 +360,7 @@ class CustomNoiseProducer extends Configurable implements NoiseProducer
 			float factorTwo, float factorThree, float factorFour)
 	{}
 
-	public void setConfigManager(Config config)
+	public void setConfigManager(Configuration config)
 	{
 		isSetConfigManagerCalled = true;
 	}

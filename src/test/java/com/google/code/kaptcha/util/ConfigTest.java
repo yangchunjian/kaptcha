@@ -20,7 +20,7 @@ import com.google.code.kaptcha.text.impl.FiveLetterFirstNameTextCreator;
  */
 public class ConfigTest extends TestCase
 {
-	private Config config;
+	private Configuration config;
 
 	private Properties properties;
 
@@ -217,8 +217,8 @@ public class ConfigTest extends TestCase
 	{
 		Font[] fonts = config.getTextProducerFonts(5);
 		assertEquals(2, fonts.length);
-		assertEquals("Arial", fonts[0].getFamily());
-		assertEquals("Courier", fonts[1].getFamily());
+		assertEquals("Arial", fonts[0].getName());
+		assertEquals("Courier", fonts[1].getName());
 	}
 
 	public void testGetTextProducerFontsWithSpecifiedPropertyGivesExpectedValue()
@@ -226,7 +226,7 @@ public class ConfigTest extends TestCase
 		properties.put("kaptcha.textproducer.font.names", "Arial");
 		Font[] fonts = config.getTextProducerFonts(5);
 		assertEquals(1, fonts.length);
-		assertEquals("Arial", fonts[0].getFamily());
+		assertEquals("Arial", fonts[0].getName());
 	}
 
 	public void testGetTextProducerFontSizeWithoutSpecifiedPropertyGivesDefaultValue()

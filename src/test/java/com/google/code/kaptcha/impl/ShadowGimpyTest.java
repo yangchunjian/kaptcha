@@ -8,6 +8,7 @@ import junit.framework.TestCase;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.text.impl.DefaultWordRenderer;
 import com.google.code.kaptcha.util.Config;
+import com.google.code.kaptcha.util.Configuration;
 import com.google.code.kaptcha.util.TestUtil;
 
 /**
@@ -34,7 +35,7 @@ public class ShadowGimpyTest extends TestCase
 		properties.put(Constants.KAPTCHA_TEXTPRODUCER_FONT_NAMES, "Arial");
 		properties.put(Constants.KAPTCHA_TEXTPRODUCER_FONT_COLOR, "BLUE");
 
-		Config config = new Config(properties);
+		Configuration config = new Config(properties);
 
 		DefaultWordRenderer renderer = new DefaultWordRenderer();
 		DefaultBackground background = new DefaultBackground();

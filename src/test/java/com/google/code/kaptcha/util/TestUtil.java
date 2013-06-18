@@ -26,7 +26,7 @@ public class TestUtil
 	public static void writePngImageFile(String filename, BufferedImage image)
 			throws IOException
 	{
-		File file = new File("_eclipse/" + filename + ".png");
+		File file = new File(filename + ".png");
 		ImageIO.write(image, "png", file);
 	}
 

@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 import com.google.code.kaptcha.util.Config;
+import com.google.code.kaptcha.util.Configuration;
 
 public class KaptchaExtend {
     private Properties props = new Properties();
@@ -25,20 +27,29 @@ public class KaptchaExtend {
     private String sessionKeyDateValue = null;
 
     public KaptchaExtend() {
-        // Switch off disk based caching.
-        ImageIO.setUseCache(false);
+        
+        this.props.put(Constants.KAPTCHA_BORDER, "no");
+        this.props.put(Constants.KAPTCHA_TEXTPRODUCER_FONT_COLOR, "black");
+        this.props.put(Constants.KAPTCHA_TEXTPRODUCER_CHAR_SPACE, "5");
 
-        this.props.put("kaptcha.border", "no");
-        this.props.put("kaptcha.textproducer.font.color", "black");
-        this.props.put("kaptcha.textproducer.char.space", "5");
+        Configuration config = new Config(this.props);
+        
+        this.init(config);
+    }
+    
+    public KaptchaExtend(Configuration config) {        
+        this.init(config);
+    }    
 
-        Config config = new Config(this.props);
+    private void init(Configuration config) {
+    	// Switch off disk based caching.
+    	ImageIO.setUseCache(false);
         this.kaptchaProducer = config.getProducerImpl();
         this.sessionKeyValue = config.getSessionKey();
-        this.sessionKeyDateValue = config.getSessionDate();
-    }
+        this.sessionKeyDateValue = config.getSessionDate();	
+	}
 
-    /**
+	/**
      * map it to the /url/captcha.jpg
      * 
      * @param req

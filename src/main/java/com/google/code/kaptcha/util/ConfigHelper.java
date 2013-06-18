@@ -97,7 +97,7 @@ public class ConfigHelper
 
 	/** */
 	public Object getClassInstance(String paramName, String paramValue,
-			Object defaultInstance, Config config)
+			Object defaultInstance, Configuration config)
 	{
 		Object instance;
 		if ("".equals(paramValue) || paramValue == null)
@@ -217,7 +217,7 @@ public class ConfigHelper
 	}
 
 	/** */
-	private void setConfigurable(Object object, Config config)
+	private void setConfigurable(Object object, Configuration config)
 	{
 		if (object instanceof Configurable)
 		{

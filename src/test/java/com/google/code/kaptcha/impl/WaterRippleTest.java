@@ -8,6 +8,7 @@ import junit.framework.TestCase;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.text.impl.DefaultWordRenderer;
 import com.google.code.kaptcha.util.Config;
+import com.google.code.kaptcha.util.Configuration;
 import com.google.code.kaptcha.util.TestUtil;
 
 /**
@@ -35,7 +36,7 @@ public class WaterRippleTest extends TestCase
 		properties.put(Constants.KAPTCHA_TEXTPRODUCER_FONT_COLOR, "RED");
 		properties.put(Constants.KAPTCHA_NOISE_COLOR, "CYAN");
 
-		Config configManager = new Config(properties);
+		Configuration configManager = new Config(properties);
 
 		DefaultWordRenderer renderer = new DefaultWordRenderer();
 		DefaultBackground background = new DefaultBackground();
