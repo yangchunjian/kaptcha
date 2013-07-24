@@ -28,7 +28,7 @@ and decided to make my own fork...
     <dependency>
       <groupId>com.github.axet</groupId>
       <artifactId>kaptcha</artifactId>
-      <version>0.0.6</version>
+      <version>0.0.7</version>
     </dependency>
   </dependencies>
 ```
