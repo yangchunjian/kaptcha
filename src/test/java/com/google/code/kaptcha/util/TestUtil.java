@@ -13,8 +13,6 @@ import javax.imageio.ImageIO;
  */
 public class TestUtil
 {
-    protected static final String OUTPUT_DIRECTORY = ".output";
-
 	/**
 	 * Writes PNG image file at project's output folder.
 	 *
@@ -28,11 +26,7 @@ public class TestUtil
 	public static void writePngImageFile(String filename, BufferedImage image)
 			throws IOException
 	{
-        File folder = new File(OUTPUT_DIRECTORY);
-        if (!folder.exists()) {
-            folder.mkdir();
-        }
-		File file = new File(OUTPUT_DIRECTORY + File.separator + filename + ".png");
+		File file = new File("_eclipse/" + filename + ".png");
 		ImageIO.write(image, "png", file);
 	}
 
