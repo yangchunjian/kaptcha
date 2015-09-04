@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.axet</groupId>
   <artifactId>kaptcha</artifactId>
-  <packaging>jar</packaging>
+  <packaging>bundle</packaging>
   <version>0.0.9-SNAPSHOT</version>
   <name>kaptcha</name>
   <description>A web kaptcha generation engine</description>
@@ -58,6 +58,7 @@
       <groupId>com.jhlabs</groupId>
       <artifactId>filters</artifactId>
       <version>2.0.235</version>
+      <optional>true</optional>
     </dependency>
   </dependencies>
 
@@ -129,6 +130,31 @@
           <source>1.6</source>
           <target>1.6</target>
           <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>2.5.4</version>
+        <extensions>true</extensions>
+        <configuration>
+          <obrRepository>NONE</obrRepository>
+          <instructions>
+            <Bundle-Name>${project.name}</Bundle-Name>
+            <Bundle-Version>${project.version}</Bundle-Version>
+            <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+            <Export-Package>
+              com.google.code.kaptcha.*
+            </Export-Package>
+            <Private-Package />
+            <Import-Package>
+              javax.servlet;version="[2.2,4)",
+              javax.servlet.http;version="[2.2,4)",
+              *
+            </Import-Package>
+            <_snapshot>${maven.build.timestamp}</_snapshot>
+            <_noee>true></_noee>
+          </instructions>
         </configuration>
       </plugin>
     </plugins>
